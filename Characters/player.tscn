@@ -444,7 +444,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -461,7 +461,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_collar",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -617,8 +617,9 @@ script = ExtResource("1_w8uk2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_f4mak")
-animation = &"pee_collar"
+animation = &"idle_collar"
 autoplay = "jump"
+frame_progress = 0.248236
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.75, 11.5)

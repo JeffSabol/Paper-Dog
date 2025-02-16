@@ -16,7 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var turn_timer = $TurnTimer
 
 func _ready():
-	player_sprite.speed_scale = 0.5
+	player_sprite.speed_scale = 0.7
 	player_sprite.play("idle_collar")
 
 func _physics_process(delta):
