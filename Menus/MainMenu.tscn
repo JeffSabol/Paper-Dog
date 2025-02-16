@@ -290,7 +290,6 @@ offset_bottom = 161.0
 
 [node name="PlayButton" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
-tooltip_text = "Start playing the game"
 texture_normal = ExtResource("6_firx6")
 texture_pressed = ExtResource("8_gm57f")
 texture_hover = ExtResource("7_3yx0j")
@@ -298,7 +297,6 @@ texture_focused = ExtResource("7_3yx0j")
 
 [node name="SettingsButton" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
-tooltip_text = "Adjust the game's settings."
 texture_normal = ExtResource("7_5wqer")
 texture_pressed = ExtResource("11_qtryw")
 texture_hover = ExtResource("8_ieiyd")
@@ -306,7 +304,6 @@ texture_focused = ExtResource("8_ieiyd")
 
 [node name="ExitButton" type="TextureButton" parent="Control/HBoxContainer"]
 layout_mode = 2
-tooltip_text = "Exit the game"
 texture_normal = ExtResource("8_trsci")
 texture_pressed = ExtResource("14_2b1pr")
 texture_hover = ExtResource("11_36r43")
