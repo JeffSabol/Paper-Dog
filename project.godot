@@ -15,7 +15,7 @@ config/description="A platformer where a dog delivers newspaper to a house. Enem
 config/version="Alpha_0.1.3"
 run/main_scene="res://Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/image="res://Assets/Unsorted/Boot_Splash.png"
 config/icon="res://Assets/Unsorted/PaperDogEmblem.png"
 
 [autoload]
