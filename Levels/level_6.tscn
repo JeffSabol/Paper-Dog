@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://d05vpq88xgqg3"]
+[gd_scene load_steps=72 format=3 uid="uid://d05vpq88xgqg3"]
 
 [ext_resource type="Texture2D" uid="uid://ds3hm1p7grakb" path="res://Assets/Environment/Background.png" id="1_mrr0r"]
 [ext_resource type="Script" path="res://Levels/level_6.gd" id="1_rcl6w"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cc8fx2uvaws46" path="res://HUD.tscn" id="17_a8ev3"]
 [ext_resource type="AudioStream" uid="uid://c5hbwug15bgrc" path="res://Assets/Audio/Gameplay Music/Level_Music.wav" id="20_44ysl"]
 [ext_resource type="PackedScene" uid="uid://jur65v0br8lk" path="res://Characters/remote_transform_2d.tscn" id="21_2lk3c"]
+[ext_resource type="Script" path="res://Levels/boss.gd" id="22_07cma"]
 [ext_resource type="Texture2D" uid="uid://wunlhui37idt" path="res://Assets/Enemies/Boss/MoleBossDig.png" id="22_mjjdt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_41d6j"]
@@ -1218,13 +1219,14 @@ position = Vector2(671, 405)
 [node name="RemoteTransform2D" parent="Player" instance=ExtResource("21_2lk3c")]
 
 [node name="Boss" type="CharacterBody2D" parent="."]
-position = Vector2(974, 1147)
+position = Vector2(965, 1129)
+script = ExtResource("22_07cma")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boss"]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_d1g7a")
 autoplay = "default"
-frame_progress = 0.919835
+frame_progress = 0.261598
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boss"]
 polygon = PackedVector2Array(-44, -38, -44, -14, -48, -14, -48, -10, -60, -10, -60, -6, -64, -6, -64, 2, -60, 2, -60, 6, -56, 6, -56, 10, -52, 10, -52, 18, -56, 18, -56, 22, -60, 22, -60, 26, -56, 26, -56, 30, -52, 30, -52, 34, -48, 34, -48, 38, 44, 38, 44, 34, 48, 34, 48, 30, 52, 30, 52, 18, 60, 18, 60, 14, 64, 14, 64, 10, 60, 10, 60, 6, 56, 6, 56, -3, 8, -3, 7, -3, 7, -14, 8, -14, 8, -38, 4, -38, 4, -34, 0, -34, 0, -30, -4, -30, -4, -34, -8, -34, -8, -38, -12, -38, -12, -34, -16, -34, -16, -30, -20, -30, -20, -34, -24, -34, -24, -38, -28, -38, -28, -34, -32, -34, -32, -30, -36, -30, -36, -34, -40, -34, -40, -38)
