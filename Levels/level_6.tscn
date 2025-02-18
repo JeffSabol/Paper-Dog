@@ -521,7 +521,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0rn6"]
@@ -1218,11 +1218,13 @@ position = Vector2(671, 405)
 [node name="RemoteTransform2D" parent="Player" instance=ExtResource("21_2lk3c")]
 
 [node name="Boss" type="CharacterBody2D" parent="."]
-position = Vector2(974, 1145)
+position = Vector2(974, 1147)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boss"]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_d1g7a")
+autoplay = "default"
+frame_progress = 0.00611855
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boss"]
 polygon = PackedVector2Array(-44, -38, -44, -14, -48, -14, -48, -10, -60, -10, -60, -6, -64, -6, -64, 2, -60, 2, -60, 6, -56, 6, -56, 10, -52, 10, -52, 18, -56, 18, -56, 22, -60, 22, -60, 26, -56, 26, -56, 30, -52, 30, -52, 34, -48, 34, -48, 38, 44, 38, 44, 34, 48, 34, 48, 30, 52, 30, 52, 18, 60, 18, 60, 14, 64, 14, 64, 10, 60, 10, 60, 6, 56, 6, 56, -3, 8, -3, 7, -3, 7, -14, 8, -14, 8, -38, 4, -38, 4, -34, 0, -34, 0, -30, -4, -30, -4, -34, -8, -34, -8, -38, -12, -38, -12, -34, -16, -34, -16, -30, -20, -30, -20, -34, -24, -34, -24, -38, -28, -38, -28, -34, -32, -34, -32, -30, -36, -30, -36, -34, -40, -34, -40, -38)

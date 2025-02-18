@@ -30,6 +30,8 @@ func _on_boss_zone_body_entered(body: Node2D) -> void:
 		# Give some time for the camera to adjust before increasing the zone.
 		await get_tree().create_timer(0.65).timeout
 		rectangle_shape_resource.set_size(Vector2(448, 354))
+		
+		# TODO charge the player
 
 func _on_boss_zone_body_exited(body: Node2D) -> void:
 	if body is Player:
