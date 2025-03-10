@@ -833,15 +833,21 @@ position = Vector2(2954, 265)
 position = Vector2(5638, 157)
 scale = Vector2(1.5, 1.5)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Level Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_c3biw")
+autoplay = true
+max_distance = 20000.0
+
+[node name="Camera2D2" type="Camera2D" parent="."]
 position = Vector2(-1308, 71)
 zoom = Vector2(2.5, 2.5)
+process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D2"]
 
-[node name="HUD" parent="Camera2D/CanvasLayer" instance=ExtResource("16_vnn8w")]
+[node name="HUD" parent="Camera2D2/CanvasLayer" instance=ExtResource("16_vnn8w")]
 offset_left = 588.0
 offset_top = 276.0
 offset_right = 628.0
@@ -850,20 +856,11 @@ scale = Vector2(2, 2)
 size_flags_horizontal = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="Level Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("17_c3biw")
-autoplay = true
-max_distance = 20000.0
-
 [node name="Player" parent="." instance=ExtResource("11_i2iv7")]
 position = Vector2(-1308, 71)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
-
-[node name="Camera2D2" type="Camera2D" parent="."]
-position = Vector2(-1308, 71)
-zoom = Vector2(2.5, 2.5)
+remote_path = NodePath("../../Camera2D2")
 
 [node name="BirdFlyer" parent="." instance=ExtResource("19_xicbt")]
 position = Vector2(656, 63)
@@ -875,43 +872,3 @@ position = Vector2(656, 63)
 [connection signal="timeout" from="MoleJumperList/MoleJumper3/JumpTimer" to="MoleJumperList/MoleJumper3" method="_on_jump_timer_timeout"]
 [connection signal="body_entered" from="MoleJumperList/MoleJumper3/Area2D" to="MoleJumperList/MoleJumper3" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="MoleWalkerLTR/StompDetector" to="MoleWalkerLTR" method="_on_stomp_detector_body_entered"]
-[connection signal="bone_picked_up" from="BoneList/Bone1_G1" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone2_G1" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone3_G1" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone4_G1" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone5_G1" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone6_G1" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone7_G1" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone1_G2" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone2_G2" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone3_G2" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone4_G2" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone5_G2" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone6_G2" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone7_G2" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone1_G3" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone2_G3" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone3_G3" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone4_G3" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone5_G3" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone6_G3" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone7_G3" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone1_G4" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone2_G4" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone3_G4" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone4_G4" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone5_G4" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone6_G4" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone7_G4" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone1_G5" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone2_G5" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone3_G5" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone4_G5" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone5_G5" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone6_G5" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone7_G5" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone2" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone3" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone4" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
-[connection signal="bone_picked_up" from="BoneList/Bone5" to="Camera2D/CanvasLayer/HUD" method="_on_bone_picked_up"]
