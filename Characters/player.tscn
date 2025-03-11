@@ -647,9 +647,9 @@ stream = ExtResource("14_c54k7")
 volume_db = -16.0
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
-wait_time = 2.6
+wait_time = 2.5
 one_shot = true
 
 [connection signal="timeout" from="PeeTimer" to="." method="_on_pee_timer_timeout"]
-[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invicibility_timer_timeout"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
