@@ -43,9 +43,7 @@ func _physics_process(delta):
 				# TODO move this all into a simple Global.subtract_time() TODO
 				Global.total_time -= 5
 				if(Global.current_difficulty == Global.DifficultyLevel.HARD):
-					print("collider.is_invincible: "+str(collider.is_invincible))
 					if !collider.is_invincible:
-						print("got here.")
 						Global.total_time = 0
 				enter_kill_state()  # Added to make the game more fair
 		if collider2 and collider2.name == "Player":
@@ -54,9 +52,7 @@ func _physics_process(delta):
 				collider2.hurt()  # Apply damage to the player if collided
 				Global.total_time -= 5
 				if(Global.current_difficulty == Global.DifficultyLevel.HARD):
-					print("collider2.is_invincible: "+str(collider2.is_invincible))
 					if !collider2.is_invincible:
-						print("got here.")
 						Global.total_time = 0
 				enter_kill_state()  # Added to make the game more fair
 	# Move and slide with the current velocity
