@@ -310,7 +310,7 @@ func hurt():
 		is_invincible = true
 	Global.has_collar = false
 	is_hurt = true
-	pee_timer.start(2.5)
+	pee_timer.start(0.5)
 	$Hurt.play()
 
 # Timeout handling for pee timer
