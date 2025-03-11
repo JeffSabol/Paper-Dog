@@ -93,6 +93,7 @@ func goto_scene(path: String) -> void:
 	call_deferred("_deferred_goto_scene", path)
 
 func _deferred_goto_scene(path: String):
+	print("DEBUG: Going to path: " + path)
 	# It is now safe to remove the current scene
 	current_scene.queue_free()
 
@@ -100,6 +101,7 @@ func _deferred_goto_scene(path: String):
 	var s = ResourceLoader.load(path)
 
 	# Instance the new scene.
+	# TODO error got null here for s on level 3 (should rename lol).
 	current_scene = s.instantiate()
 
 	# Add it to the active scene, as child of root.
