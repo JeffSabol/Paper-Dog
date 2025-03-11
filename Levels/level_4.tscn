@@ -666,6 +666,8 @@ position = Vector2(-145, 72)
 scale = Vector2(-1, 1)
 script = ExtResource("9_qobrj")
 
+[node name="StunTimer" type="Timer" parent="MoleWalkerLTR"]
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MoleWalkerLTR"]
 position = Vector2(722, 10)
 polygon = PackedVector2Array(-10, -6, -10, -5, -12, -5, -12, -4, -15, -4, -15, -3, -16, -3, -16, 8, 16, 8, 16, 1, 15, 1, 15, 0, 14, 0, 14, -3, 13, -3, 13, -4, 12, -4, 12, -5, 2, -5, 2, -6)
