@@ -843,16 +843,16 @@ stream = ExtResource("17_c3biw")
 autoplay = true
 max_distance = 20000.0
 
-[node name="Camera2D2" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1308, 71)
 zoom = Vector2(2.5, 2.5)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D2"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
-[node name="HUD" parent="Camera2D2/CanvasLayer" instance=ExtResource("16_vnn8w")]
+[node name="HUD" parent="Camera2D/CanvasLayer" instance=ExtResource("16_vnn8w")]
 offset_left = 588.0
 offset_top = 276.0
 offset_right = 628.0
@@ -865,7 +865,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-1308, 71)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D2")
+remote_path = NodePath("../../Camera2D")
 
 [node name="BirdFlyer" parent="." instance=ExtResource("19_xicbt")]
 position = Vector2(656, 63)

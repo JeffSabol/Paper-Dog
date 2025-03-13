@@ -14,6 +14,10 @@ var master_volume_off = preload("res://Assets/Menu/Settings/MasterVolumeOff.png"
 # Original master volume
 var original_master_volume
 
+# Speedrun button textures
+var speed_run_on = preload("res://Assets/Menu/Settings/Speedrun Clock.png")
+var speed_run_off = preload("res://Assets/Menu/Settings/Speedrun_Clock_Off.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	original_master_volume = AudioServer.get_bus_volume_db(0)
@@ -30,6 +34,25 @@ func _ready():
 		$ScrollContainer/VBoxContainer/MasterVolumeButton.texture_normal = master_volume_on
 	else:
 		$ScrollContainer/VBoxContainer/MasterVolumeButton.texture_normal = master_volume_off
+		
+	# Set the Speedrun timer texture
+	if Global.config.get_value("counter", "speedrun"):
+		$ScrollContainer/VBoxContainer/SpeedrunCounterButton.texture_normal = speed_run_on
+	else:
+		$ScrollContainer/VBoxContainer/SpeedrunCounterButton.texture_normal = speed_run_off
+		
+	#"display": {
+		#"fullscreen": false,
+	#},
+	#"game": {
+		#"difficulty": DifficultyLevel.HARD,
+	#},
+	#"counter" : {
+		#"speedrun": false,
+	#},
+	#"sound" : {
+		#"master": true,
+	#}
 
 func _on_exit_button_pressed():
 	$ButtonSound.play()
@@ -102,8 +125,16 @@ func _on_speedrun_counter_button_pressed() -> void:
 	$ButtonSound.play()
 	
 	# Toggle the speedrun counter in the game's HUD
+	# Flip the current speedrun value upon being pressed
 	var speedrun_counter = not Global.config.get_value("counter", "speedrun", Global.default_settings["counter"]["speedrun"])
-	Global.config.set_value("counter", "speedrun", speedrun_counter)
+	
+	# Set the texture
+	if Global.config.get_value("counter", "speedrun"):
+		$ScrollContainer/VBoxContainer/SpeedrunCounterButton.texture_normal = speed_run_off
+		Global.config.set_value("counter", "speedrun", speedrun_counter)
+	else:
+		$ScrollContainer/VBoxContainer/SpeedrunCounterButton.texture_normal = speed_run_on
+		Global.config.set_value("counter", "speedrun", speedrun_counter)
 	Global.apply_settings()
 
 func _on_master_volume_button_pressed() -> void:
