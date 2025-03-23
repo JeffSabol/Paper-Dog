@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://kjx0ehwc3qy"]
+[gd_scene load_steps=38 format=3 uid="uid://kjx0ehwc3qy"]
 
 [ext_resource type="Texture2D" uid="uid://ds3hm1p7grakb" path="res://Assets/Environment/Background.png" id="1_5vcrj"]
 [ext_resource type="Texture2D" uid="uid://b1gijyai74025" path="res://Assets/PixelFrog/Terrain/Terrain (16x16).png" id="2_b6xox"]
+[ext_resource type="PackedScene" uid="uid://dpavor7dfr3hp" path="res://Objects/FireHydrant.tscn" id="2_crx7t"]
 [ext_resource type="Texture2D" uid="uid://dpa3pwfbbn1mp" path="res://Assets/Environment/PineTree.png" id="3_ipsvb"]
 [ext_resource type="Script" path="res://Levels/MoleJumper.gd" id="4_md1te"]
 [ext_resource type="PackedScene" uid="uid://ble575txva0hm" path="res://Characters/player.tscn" id="4_whwk6"]
@@ -372,6 +373,9 @@ offset_bottom = 358.0
 texture = ExtResource("1_5vcrj")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="FireHydrant" parent="." instance=ExtResource("2_crx7t")]
+position = Vector2(1070, 81)
 
 [node name="Trees" type="Node2D" parent="."]
 

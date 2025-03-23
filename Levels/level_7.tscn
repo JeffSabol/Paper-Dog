@@ -289,19 +289,10 @@ layer_0/tile_data = PackedInt32Array(327700, 458752, 10, 393236, 458752, 9, 4587
 layer_1/name = "Platoorms"
 layer_1/tile_data = PackedInt32Array(-524254, 1114112, 2, -524253, 1179648, 2, -524252, 1179648, 2, -524251, 1179648, 2, -524250, 1179648, 2, -524249, 1179648, 2, -524248, 1179648, 2, -524247, 1245184, 2, -262125, 1114112, 2, -262124, 1179648, 2, -262123, 1179648, 2, -262122, 1179648, 2, -262121, 1179648, 2, -262120, 1179648, 2, -262119, 1179648, 2, -262118, 1245184, 2, -524207, 1114112, 2, -524200, 1245184, 2, -262041, 1245184, 2, -262071, 1245184, 2, -262042, 1179648, 2, -262043, 1179648, 2, -262044, 1179648, 2, -262045, 1179648, 2, -262046, 1179648, 2, -262047, 1179648, 2, -524201, 1179648, 2, -524202, 1179648, 2, -524203, 1179648, 2, -524204, 1179648, 2, -524205, 1179648, 2, -524206, 1179648, 2, -262048, 1114112, 2, -262078, 1114112, 2, -262077, 1179648, 2, -262076, 1179648, 2, -262075, 1179648, 2, -262074, 1179648, 2, -262073, 1179648, 2, -262072, 1179648, 2, -130968, 1179648, 2, -130967, 1245184, 2)
 
+[node name="FireHydrant1" parent="." instance=ExtResource("9_4vayw")]
+position = Vector2(912, 65)
+
 [node name="FireHydrantList" type="Node2D" parent="."]
-
-[node name="FireHydrant1" parent="FireHydrantList" instance=ExtResource("9_4vayw")]
-position = Vector2(488, 65)
-
-[node name="FireHydrant2" parent="FireHydrantList" instance=ExtResource("9_4vayw")]
-position = Vector2(711, 65)
-
-[node name="FireHydrant3" parent="FireHydrantList" instance=ExtResource("9_4vayw")]
-position = Vector2(1736, 66)
-
-[node name="FireHydrant4" parent="FireHydrantList" instance=ExtResource("9_4vayw")]
-position = Vector2(1864, 66)
 
 [node name="BoneList" type="Node2D" parent="."]
 

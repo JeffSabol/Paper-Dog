@@ -295,25 +295,8 @@ position = Vector2(3791, 66)
 scale = Vector2(2, 2)
 texture = ExtResource("12_w503l")
 
-[node name="FireHydrantList" type="Node2D" parent="."]
-
-[node name="FireHydrant1" parent="FireHydrantList" instance=ExtResource("4_kex6k")]
-position = Vector2(562, 17)
-
-[node name="FireHydrant2" parent="FireHydrantList" instance=ExtResource("4_kex6k")]
-position = Vector2(272, 17)
-
-[node name="FireHydrant3" parent="FireHydrantList" instance=ExtResource("4_kex6k")]
-position = Vector2(989, 1)
-
-[node name="FireHydrant5" parent="FireHydrantList" instance=ExtResource("4_kex6k")]
-position = Vector2(3472, 225)
-
-[node name="FireHydrant4" parent="FireHydrantList" instance=ExtResource("4_kex6k")]
-position = Vector2(897, 1)
-
-[node name="FireHydrant6" parent="FireHydrantList" instance=ExtResource("4_kex6k")]
-position = Vector2(2736, 129)
+[node name="FireHydrant1" parent="." instance=ExtResource("4_kex6k")]
+position = Vector2(1664, -159)
 
 [node name="BoneList" type="Node2D" parent="."]
 

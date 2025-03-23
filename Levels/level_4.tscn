@@ -546,17 +546,8 @@ position = Vector2(-5.69824, 34)
 scale = Vector2(2, 2)
 texture = ExtResource("2_f4q5y")
 
-[node name="FireHydrantList2" type="Node2D" parent="."]
-position = Vector2(-160, -166)
-
-[node name="FireHydrant" parent="FireHydrantList2" instance=ExtResource("8_46sdr")]
-position = Vector2(4014, 407)
-
-[node name="FireHydrant3" parent="FireHydrantList2" instance=ExtResource("8_46sdr")]
-position = Vector2(4590, 311)
-
-[node name="FireHydrant4" parent="FireHydrantList2" instance=ExtResource("8_46sdr")]
-position = Vector2(4718, 311)
+[node name="FireHydrant" parent="." instance=ExtResource("8_46sdr")]
+position = Vector2(3998, 289)
 
 [node name="Newspaper" parent="." instance=ExtResource("16_kjt7u")]
 position = Vector2(3758, 250)
@@ -644,6 +635,31 @@ position = Vector2(0, 28)
 position = Vector2(0, 1)
 polygon = PackedVector2Array(-11, -12, -11, 16, 12, 16, 12, -12)
 
+[node name="MoleJumper4" type="CharacterBody2D" parent="MoleJumperList"]
+position = Vector2(5118, 84)
+collision_layer = 3
+script = ExtResource("4_jq247")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MoleJumperList/MoleJumper4"]
+position = Vector2(0, 28)
+sprite_frames = SubResource("SpriteFrames_dl0v1")
+animation = &"jump"
+
+[node name="JumpTimer" type="Timer" parent="MoleJumperList/MoleJumper4"]
+wait_time = 4.0
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoleJumperList/MoleJumper4"]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_jwhlm")
+
+[node name="Area2D" type="Area2D" parent="MoleJumperList/MoleJumper4"]
+position = Vector2(0, 28)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MoleJumperList/MoleJumper4/Area2D"]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(-11, -12, -11, 16, 12, 16, 12, -12)
+
 [node name="MoleMounds" type="Node2D" parent="."]
 
 [node name="Mound" type="Sprite2D" parent="MoleMounds"]
@@ -656,6 +672,10 @@ texture = ExtResource("2_qg3ie")
 
 [node name="Mound3" type="Sprite2D" parent="MoleMounds"]
 position = Vector2(677, 89)
+texture = ExtResource("2_qg3ie")
+
+[node name="Mound4" type="Sprite2D" parent="MoleMounds"]
+position = Vector2(5118, 121)
 texture = ExtResource("2_qg3ie")
 
 [node name="CharacterBody2D4" parent="." instance=ExtResource("7_4kghd")]
@@ -703,6 +723,9 @@ volume_db = -14.0
 
 [node name="CharacterBody2D5" parent="." instance=ExtResource("7_4kghd")]
 position = Vector2(2705, 48)
+
+[node name="CharacterBody2D7" parent="." instance=ExtResource("7_4kghd")]
+position = Vector2(4041, 120)
 
 [node name="FireHydrantList" type="Node2D" parent="."]
 visible = false
@@ -876,4 +899,6 @@ position = Vector2(656, 63)
 [connection signal="body_entered" from="MoleJumperList/MoleJumper2/Area2D" to="MoleJumperList/MoleJumper2" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="MoleJumperList/MoleJumper3/JumpTimer" to="MoleJumperList/MoleJumper3" method="_on_jump_timer_timeout"]
 [connection signal="body_entered" from="MoleJumperList/MoleJumper3/Area2D" to="MoleJumperList/MoleJumper3" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="MoleJumperList/MoleJumper4/JumpTimer" to="MoleJumperList/MoleJumper4" method="_on_jump_timer_timeout"]
+[connection signal="body_entered" from="MoleJumperList/MoleJumper4/Area2D" to="MoleJumperList/MoleJumper4" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="MoleWalkerLTR/StompDetector" to="MoleWalkerLTR" method="_on_stomp_detector_body_entered"]
