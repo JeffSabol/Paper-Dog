@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bh524wb3pvctb"]
 
-[ext_resource type="Script" path="res://Objects/Bone.gd" id="1_66dbo"]
+[ext_resource type="Script" uid="uid://7ayn84647qsy" path="res://Objects/Bone.gd" id="1_66dbo"]
 [ext_resource type="Texture2D" uid="uid://cv8kemvndniu3" path="res://Assets/Environment/Bone.png" id="1_g58v4"]
 [ext_resource type="AudioStream" uid="uid://dshjtq3q00scd" path="res://Assets/Audio/Gameplay SFX/Pickup.wav" id="3_1m41q"]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://dp2rkrxe58itu" path="res://Assets/Font/ARCADECLASSIC.TTF" id="1_2u7r7"]
 [ext_resource type="Texture2D" uid="uid://bhaqjgpoynt36" path="res://Assets/Dog/Bark.png" id="1_6gdmd"]
-[ext_resource type="Script" path="res://Menus/PreLevel.gd" id="1_kolfe"]
+[ext_resource type="Script" uid="uid://ed6txoargwuy" path="res://Menus/PreLevel.gd" id="1_kolfe"]
 [ext_resource type="Texture2D" uid="uid://cwionm5txfwln" path="res://Assets/Menu/PreLevel/Hamburger.png" id="4_mc61m"]
 [ext_resource type="Texture2D" uid="uid://hyytdddvaokm" path="res://Assets/Menu/PreLevel/Vanilla_Icecream.png" id="6_jjxtr"]
 [ext_resource type="Texture2D" uid="uid://cv8kemvndniu3" path="res://Assets/Environment/Bone.png" id="6_rdh4l"]

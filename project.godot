@@ -14,7 +14,7 @@ config/name="Paper Dog"
 config/description="A platformer where a dog delivers newspaper to a house. Enemies make the route challenging."
 config/version="Alpha_0.1.4"
 run/main_scene="res://Menus/MainMenu.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
+config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/image="res://Assets/Unsorted/Boot_Splash.png"
 config/icon="res://Assets/Unsorted/PaperDogEmblem.png"
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cc8fx2uvaws46"]
 
-[ext_resource type="Script" path="res://Levels/HUD.gd" id="1_0a344"]
+[ext_resource type="Script" uid="uid://bfqwf86xc166v" path="res://Levels/HUD.gd" id="1_0a344"]
 [ext_resource type="Texture2D" uid="uid://cv8kemvndniu3" path="res://Assets/Environment/Bone.png" id="2_eosqq"]
 [ext_resource type="FontFile" uid="uid://cuo28wcy83qw8" path="res://Assets/Font/dpcomic.ttf" id="3_hhlkd"]
 [ext_resource type="Texture2D" uid="uid://bead53im1swcj" path="res://Assets/HUD/HourGlass.png" id="4_38xit"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://cir0fiprkupvv"]
 
-[ext_resource type="Script" path="res://Menus/EndOfLevel.gd" id="1_bu11d"]
+[ext_resource type="Script" uid="uid://bvi2sf4hv4mqp" path="res://Menus/EndOfLevel.gd" id="1_bu11d"]
 [ext_resource type="Texture2D" uid="uid://0vqbdsqpc3pu" path="res://Assets/Menu/EndOfLevel/EndOfLevel.png" id="2_267lg"]
 [ext_resource type="Texture2D" uid="uid://bv8o7tk4wgi5y" path="res://Assets/Menu/EndOfLevel/ContinueButton.png" id="2_c5mh8"]
 [ext_resource type="Texture2D" uid="uid://cvspwqlbqypql" path="res://Assets/Menu/EndOfLevel/Paper_Dog_Times.png" id="3_5wj5i"]
-[ext_resource type="Script" path="res://Menus/ContinueButton.gd" id="3_i8jip"]
+[ext_resource type="Script" uid="uid://b1w3bcsqy4tc5" path="res://Menus/ContinueButton.gd" id="3_i8jip"]
 [ext_resource type="FontFile" uid="uid://cuo28wcy83qw8" path="res://Assets/Font/dpcomic.ttf" id="5_c6fl4"]
 [ext_resource type="AudioStream" uid="uid://bkcy7lxurv7gn" path="res://Assets/Audio/End_Of_Level_Music.wav" id="6_yrf7x"]
 [ext_resource type="FontFile" uid="uid://dp2rkrxe58itu" path="res://Assets/Font/ARCADECLASSIC.TTF" id="7_31hj4"]

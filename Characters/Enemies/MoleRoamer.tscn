@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://v6tdbqqiibu5"]
 
-[ext_resource type="Script" path="res://Levels/Mole.gd" id="1_foghr"]
+[ext_resource type="Script" uid="uid://b1f2gskqs6wn1" path="res://Levels/Mole.gd" id="1_foghr"]
 [ext_resource type="Texture2D" uid="uid://b0i2lab1h6nmx" path="res://Assets/Enemies/MoleDeath.png" id="2_neawm"]
 [ext_resource type="Texture2D" uid="uid://dt3t17u6kpbfo" path="res://Assets/Enemies/MoleDigAnimation.png" id="2_osprw"]
 

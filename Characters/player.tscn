@@ -1,6 +1,6 @@
 [gd_scene load_steps=88 format=3 uid="uid://ble575txva0hm"]
 
-[ext_resource type="Script" path="res://Characters/player.gd" id="1_w8uk2"]
+[ext_resource type="Script" uid="uid://d1f3tebtn2lx" path="res://Characters/player.gd" id="1_w8uk2"]
 [ext_resource type="Texture2D" uid="uid://bhaqjgpoynt36" path="res://Assets/Dog/Bark.png" id="2_j5f53"]
 [ext_resource type="Texture2D" uid="uid://cmsby0b861dco" path="res://Assets/Dog/Crawling.png" id="3_bhtyv"]
 [ext_resource type="Texture2D" uid="uid://72fgx27y6jhg" path="res://Assets/Dog/CrawlHurt.png" id="4_2jvhl"]

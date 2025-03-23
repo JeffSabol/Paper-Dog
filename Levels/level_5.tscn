@@ -1,7 +1,7 @@
 [gd_scene load_steps=57 format=3 uid="uid://ibux22cp30od"]
 
 [ext_resource type="Texture2D" uid="uid://ds3hm1p7grakb" path="res://Assets/Environment/Background.png" id="1_aqfth"]
-[ext_resource type="Script" path="res://Levels/MoleJumper.gd" id="2_elvx2"]
+[ext_resource type="Script" uid="uid://voqnoa2j1gw2" path="res://Levels/MoleJumper.gd" id="2_elvx2"]
 [ext_resource type="Texture2D" uid="uid://dpa3pwfbbn1mp" path="res://Assets/Environment/PineTree.png" id="2_monow"]
 [ext_resource type="Texture2D" uid="uid://bp6xr1oy8q24i" path="res://Assets/Enemies/DirtParticles.png" id="3_lvdfh"]
 [ext_resource type="PackedScene" uid="uid://dpavor7dfr3hp" path="res://Objects/FireHydrant.tscn" id="3_qn0op"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b1gijyai74025" path="res://Assets/PixelFrog/Terrain/Terrain (16x16).png" id="5_bogug"]
 [ext_resource type="Texture2D" uid="uid://bn4ti5hmaxhd2" path="res://Assets/Environment/MoleMound.png" id="5_wsthi"]
 [ext_resource type="PackedScene" uid="uid://v6tdbqqiibu5" path="res://Characters/Enemies/MoleRoamer.tscn" id="9_vlenl"]
-[ext_resource type="Script" path="res://Levels/Mole.gd" id="10_q37gx"]
+[ext_resource type="Script" uid="uid://b1f2gskqs6wn1" path="res://Levels/Mole.gd" id="10_q37gx"]
 [ext_resource type="Texture2D" uid="uid://b0i2lab1h6nmx" path="res://Assets/Enemies/MoleDeath.png" id="11_2qgve"]
 [ext_resource type="Texture2D" uid="uid://dic4onqv4266i" path="res://Assets/Environment/CavernSign.png" id="11_otlcb"]
 [ext_resource type="Texture2D" uid="uid://dt3t17u6kpbfo" path="res://Assets/Enemies/MoleDigAnimation.png" id="12_ic6io"]

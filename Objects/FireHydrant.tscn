@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpavor7dfr3hp"]
 
 [ext_resource type="Texture2D" uid="uid://c05nsv1l2107i" path="res://Assets/Environment/FireHydrant.png" id="1_0qj6v"]
-[ext_resource type="Script" path="res://Objects/FireHydrant.gd" id="1_ytcnt"]
+[ext_resource type="Script" uid="uid://3a8i7tsa75yn" path="res://Objects/FireHydrant.gd" id="1_ytcnt"]
 
 [node name="FireHydrant" type="Area2D"]
 script = ExtResource("1_ytcnt")

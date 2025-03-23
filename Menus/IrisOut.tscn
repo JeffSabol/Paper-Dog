@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cktb2fpg1coaf"]
 
-[ext_resource type="Shader" path="res://Menus/IrisOut.gdshader" id="1_emhbt"]
-[ext_resource type="Script" path="res://Menus/iris_out.gd" id="1_mp858"]
+[ext_resource type="Shader" uid="uid://cu1wsruw12njq" path="res://Menus/IrisOut.gdshader" id="1_emhbt"]
+[ext_resource type="Script" uid="uid://col4xybnc7nub" path="res://Menus/iris_out.gd" id="1_mp858"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lw00k"]
 shader = ExtResource("1_emhbt")
@@ -56,9 +56,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_16apt"]
 _data = {
-"RESET": SubResource("Animation_dgou3"),
-"close": SubResource("Animation_xbxdx"),
-"open": SubResource("Animation_jebxs")
+&"RESET": SubResource("Animation_dgou3"),
+&"close": SubResource("Animation_xbxdx"),
+&"open": SubResource("Animation_jebxs")
 }
 
 [node name="IrisOut" type="Control"]

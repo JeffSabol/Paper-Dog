@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyn0a1hyfvvwa"]
 
-[ext_resource type="Script" path="res://Objects/Newspaper.gd" id="1_sqfwc"]
+[ext_resource type="Script" uid="uid://ce1ihcqpug8ay" path="res://Objects/Newspaper.gd" id="1_sqfwc"]
 [ext_resource type="Texture2D" uid="uid://dgltf607bu5o1" path="res://Assets/Environment/Newspaper.png" id="2_yakqm"]
 [ext_resource type="AudioStream" uid="uid://d1jnwmklj031n" path="res://Assets/Audio/Gameplay SFX/Newspaper_SFX.wav" id="3_ldyrd"]
 

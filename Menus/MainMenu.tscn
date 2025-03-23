@@ -1,15 +1,15 @@
 [gd_scene load_steps=31 format=3 uid="uid://bvn5gy6ac6uio"]
 
 [ext_resource type="Texture2D" uid="uid://b1gijyai74025" path="res://Assets/PixelFrog/Terrain/Terrain (16x16).png" id="1_5ycr6"]
-[ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_6a6fq"]
+[ext_resource type="Script" uid="uid://bjkf1bt4hwoiw" path="res://Menus/main_menu.gd" id="1_6a6fq"]
 [ext_resource type="Texture2D" uid="uid://ds3hm1p7grakb" path="res://Assets/Environment/Background.png" id="1_x1hmu"]
 [ext_resource type="PackedScene" uid="uid://v6tdbqqiibu5" path="res://Characters/Enemies/MoleRoamer.tscn" id="5_s40rv"]
 [ext_resource type="PackedScene" uid="uid://ble575txva0hm" path="res://Characters/player.tscn" id="6_f2mum"]
 [ext_resource type="Texture2D" uid="uid://djdmigpffgs86" path="res://Assets/Buttons/PlayNew.png" id="6_firx6"]
-[ext_resource type="Script" path="res://Menus/MainMenu.gd" id="6_nhs3t"]
+[ext_resource type="Script" uid="uid://bxy60savxy4ne" path="res://Menus/MainMenu.gd" id="6_nhs3t"]
 [ext_resource type="Texture2D" uid="uid://xh582iaeeb4b" path="res://Assets/Buttons/PlayNewHover.png" id="7_3yx0j"]
 [ext_resource type="Texture2D" uid="uid://ctj82u7m7bab3" path="res://Assets/Buttons/SettingsNew.png" id="7_5wqer"]
-[ext_resource type="Script" path="res://Characters/menu_puppet.gd" id="7_66gn3"]
+[ext_resource type="Script" uid="uid://bo8des0kfydo7" path="res://Characters/menu_puppet.gd" id="7_66gn3"]
 [ext_resource type="Texture2D" uid="uid://dse0n2s8xtnfj" path="res://Assets/Menu/PaperDogLogo.png" id="7_f7yxc"]
 [ext_resource type="Texture2D" uid="uid://djtvn6rvrnap4" path="res://Assets/Buttons/PlayNewPressed.png" id="8_gm57f"]
 [ext_resource type="Texture2D" uid="uid://b27i3gcv85kiq" path="res://Assets/Buttons/SettingsNewHover.png" id="8_ieiyd"]
@@ -18,12 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://bqd2xr1t0d5ao" path="res://Assets/Buttons/SettingsNewPressed.png" id="11_qtryw"]
 [ext_resource type="Texture2D" uid="uid://2wuya68es3vf" path="res://Assets/Buttons/ExitNewPressed.png" id="14_2b1pr"]
 [ext_resource type="AudioStream" uid="uid://drnnjjv7r2wfg" path="res://Assets/Audio/menu/Menu Music/Menu_Music.wav" id="17_2kf0m"]
-[ext_resource type="Script" path="res://Menus/ExitButton.gd" id="17_iq0xo"]
-[ext_resource type="Script" path="res://Levels/Bird.gd" id="18_3ttsq"]
+[ext_resource type="Script" uid="uid://cdh0r8v24esvf" path="res://Menus/ExitButton.gd" id="17_iq0xo"]
+[ext_resource type="Script" uid="uid://cphrcl2n6jjo5" path="res://Levels/Bird.gd" id="18_3ttsq"]
 [ext_resource type="AudioStream" uid="uid://dna4jh67p0p13" path="res://Assets/Audio/menu/Menu SFX/Menu_SFX_Play.wav" id="18_6ljou"]
 [ext_resource type="PackedScene" uid="uid://x05u00opb3jo" path="res://Characters/Enemies/BirdFlyer.tscn" id="20_7odfe"]
 [ext_resource type="FontFile" uid="uid://cuo28wcy83qw8" path="res://Assets/Font/dpcomic.ttf" id="23_olafx"]
-[ext_resource type="Script" path="res://Menus/version.gd" id="24_2uqxg"]
+[ext_resource type="Script" uid="uid://ngoqussn28ef" path="res://Menus/version.gd" id="24_2uqxg"]
 
 [sub_resource type="Curve" id="Curve_4nkfg"]
 _data = [Vector2(0, 0.978453), 0.0, 0.0, 0, 0, Vector2(0.535411, 0.683978), 0.0, 0.0, 0, 0, Vector2(0.994334, 0.0160221), 0.0, 0.0, 0, 0]
@@ -223,9 +223,9 @@ stretch_mode = 1
 visible = false
 position = Vector2(64, -440)
 amount = 200
-process_material = SubResource("ParticleProcessMaterial_ac2fm")
 lifetime = 10.0
 preprocess = 30.0
+process_material = SubResource("ParticleProcessMaterial_ac2fm")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(64, 64)

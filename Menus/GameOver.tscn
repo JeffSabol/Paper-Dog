@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://c3ryvxbpyoyes"]
 
-[ext_resource type="Script" path="res://Menus/GameOver.gd" id="1_p85rw"]
+[ext_resource type="Script" uid="uid://c70ss056qy1f6" path="res://Menus/GameOver.gd" id="1_p85rw"]
 [ext_resource type="Texture2D" uid="uid://bt6wcrbg16s76" path="res://Assets/Menu/GameOver/Background.png" id="1_ysi7c"]
 [ext_resource type="Texture2D" uid="uid://drpmsxlfjka6e" path="res://Assets/Dog/Death.png" id="2_t8tx0"]
 [ext_resource type="AudioStream" uid="uid://ccex10e41jgk6" path="res://Assets/Menu/GameOver/death.mp3" id="3_pwyaa"]
