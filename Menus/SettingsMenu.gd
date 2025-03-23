@@ -2,6 +2,10 @@
 # SettingsMenu.gd : The scripting behind the settings menu. Makes the buttons actually work and affect game.
 extends Control
 
+# Full Screen button textures
+var full_screen_on = preload("res://Assets/Menu/Settings/Fullscreen.png")
+var full_screen_off = preload("res://Assets/Menu/Settings/FullscreenOff.png")
+
 # Difficulty button textures
 var easy_button_normal = preload("res://Assets/Menu/Settings/Easy.png")
 var medium_button_normal = preload("res://Assets/Menu/Settings/Medium.png")
@@ -41,6 +45,13 @@ func _ready():
 	else:
 		$ScrollContainer/VBoxContainer/SpeedrunCounterButton.texture_normal = speed_run_off
 		
+	# Set the Full Screen button texture
+	if Global.config.get_value("display", "fullscreen"):
+		$ScrollContainer/VBoxContainer/FullScreenButton.texture_normal = full_screen_on
+	else:
+		$ScrollContainer/VBoxContainer/FullScreenButton.texture_normal = full_screen_off
+		pass
+		
 	#"display": {
 		#"fullscreen": false,
 	#},
@@ -76,15 +87,7 @@ func _on_reset_button_pressed():
 			Global.config.set_value(section, key, Global.default_settings[section][key])
 	Global.apply_settings()
 	
-	# Set the difficulty button texture to the default (easy) texture
-	$ScrollContainer/VBoxContainer/DifficultyButton.texture_normal = easy_button_normal
-	Global.current_difficulty = Global.DifficultyLevel.EASY
-	Global.config.set_value("game", "difficulty", Global.current_difficulty)
-	# Set the master volume back to normal
-	Global.config.set_value("sound", "master", true)
-	$ScrollContainer/VBoxContainer/MasterVolumeButton.texture_normal = master_volume_on
-	AudioServer.set_bus_volume_db(0, 0)
-	Global.config.save("res://settings.cfg")
+	_ready()
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -103,7 +106,14 @@ func _on_full_screen_button_pressed():
 	
 	# Toggle fullscreen mode and update the settings
 	var fullscreen = not Global.config.get_value("display", "fullscreen", Global.default_settings["display"]["fullscreen"])
-	Global.config.set_value("display", "fullscreen", fullscreen)
+	
+	# Set the texture
+	if Global.config.get_value("display", "fullscreen"):
+		$ScrollContainer/VBoxContainer/FullScreenButton.texture_normal = full_screen_off
+		Global.config.set_value("display", "fullscreen", fullscreen)
+	else:
+		$ScrollContainer/VBoxContainer/FullScreenButton.texture_normal = full_screen_on
+		Global.config.set_value("display", "fullscreen", fullscreen)
 	Global.apply_settings()
 
 func _on_difficulty_button_pressed():
