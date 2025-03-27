@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0866glt2yjl2"]
+[gd_scene load_steps=10 format=3 uid="uid://d0866glt2yjl2"]
 
 [ext_resource type="Script" uid="uid://b06agg7wypfj2" path="res://Menus/SettingsMenu.gd" id="1_rsira"]
 [ext_resource type="Texture2D" uid="uid://wsjr6ik3f2ww" path="res://Assets/Menu/Settings/Main.png" id="2_fj0h1"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b16j0gwfgawpm" path="res://Assets/Menu/Settings/Check.png" id="4_6vygf"]
 [ext_resource type="Texture2D" uid="uid://1onsm3rxsfy5" path="res://Assets/Menu/Settings/Reset.png" id="4_kefqm"]
 [ext_resource type="Texture2D" uid="uid://dgnsfce00mye0" path="res://Assets/Menu/Settings/Fullscreen.png" id="5_y43ed"]
-[ext_resource type="Texture2D" uid="uid://dfkdm0kso13hj" path="res://Assets/Menu/Settings/Easy.png" id="7_8388v"]
 [ext_resource type="Texture2D" uid="uid://dbyiyxstvu1xj" path="res://Assets/Menu/Settings/Speedrun Clock.png" id="8_j876r"]
 [ext_resource type="AudioStream" uid="uid://dna4jh67p0p13" path="res://Assets/Audio/menu/Menu SFX/Menu_SFX_Play.wav" id="8_w818f"]
 [ext_resource type="Texture2D" uid="uid://gmywowurveeo" path="res://Assets/Menu/Settings/MasterVolumeOn.png" id="9_8ap5o"]
@@ -70,10 +69,6 @@ layout_mode = 2
 layout_mode = 2
 texture_normal = ExtResource("5_y43ed")
 
-[node name="DifficultyButton" type="TextureButton" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("7_8388v")
-
 [node name="SpeedrunCounterButton" type="TextureButton" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("8_j876r")
@@ -88,8 +83,7 @@ stream = ExtResource("8_w818f")
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/FullScreenButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/FullScreenButton" to="." method="_on_full_screen_button_pressed"]
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/DifficultyButton" to="." method="_on_difficulty_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/FullScreenButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/SpeedrunCounterButton" to="." method="_on_speedrun_counter_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/MasterVolumeButton" to="." method="_on_master_volume_button_pressed"]

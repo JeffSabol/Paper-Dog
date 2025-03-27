@@ -25,15 +25,7 @@ var speed_run_off = preload("res://Assets/Menu/Settings/Speedrun_Clock_Off.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	original_master_volume = AudioServer.get_bus_volume_db(0)
-	# Fixes the difficulty button always being the easy texture upon opening the settings menu.
-	match Global.current_difficulty:
-		Global.DifficultyLevel.EASY:
-			$ScrollContainer/VBoxContainer/DifficultyButton.texture_normal = easy_button_normal
-		Global.DifficultyLevel.MEDIUM:
-			$ScrollContainer/VBoxContainer/DifficultyButton.texture_normal = medium_button_normal
-		Global.DifficultyLevel.HARD:
-			$ScrollContainer/VBoxContainer/DifficultyButton.texture_normal = hard_button_normal
-			
+	# Set the Master Volume texture 
 	if Global.config.get_value("sound", "master"):
 		$ScrollContainer/VBoxContainer/MasterVolumeButton.texture_normal = master_volume_on
 	else:
@@ -51,19 +43,6 @@ func _ready():
 	else:
 		$ScrollContainer/VBoxContainer/FullScreenButton.texture_normal = full_screen_off
 		pass
-		
-	#"display": {
-		#"fullscreen": false,
-	#},
-	#"game": {
-		#"difficulty": DifficultyLevel.HARD,
-	#},
-	#"counter" : {
-		#"speedrun": false,
-	#},
-	#"sound" : {
-		#"master": true,
-	#}
 
 func _on_exit_button_pressed():
 	$ButtonSound.play()
@@ -115,21 +94,6 @@ func _on_full_screen_button_pressed():
 		$ScrollContainer/VBoxContainer/FullScreenButton.texture_normal = full_screen_on
 		Global.config.set_value("display", "fullscreen", fullscreen)
 	Global.apply_settings()
-
-func _on_difficulty_button_pressed():
-	$ButtonSound.play()
-	
-	Global.current_difficulty = (Global.current_difficulty + 1) % 3 # enum DifficultyLevel { EASY, MEDIUM, HARD }
-	
-	match Global.current_difficulty:
-		Global.DifficultyLevel.EASY:
-			$ScrollContainer/VBoxContainer/DifficultyButton.texture_normal = easy_button_normal
-		Global.DifficultyLevel.MEDIUM:
-			$ScrollContainer/VBoxContainer/DifficultyButton.texture_normal = medium_button_normal
-		Global.DifficultyLevel.HARD:
-			$ScrollContainer/VBoxContainer/DifficultyButton.texture_normal = hard_button_normal
-	Global.config.set_value("game", "difficulty", Global.current_difficulty)
-	Global.config.save("res://settings.cfg")
 
 func _on_speedrun_counter_button_pressed() -> void:
 	$ButtonSound.play()
