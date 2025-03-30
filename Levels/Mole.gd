@@ -40,21 +40,16 @@ func _physics_process(delta):
 			if $StunTimer.is_stopped():
 				$StunTimer.start()
 				collider.hurt()  # Apply damage to the player if collided
-				# TODO move this all into a simple Global.subtract_time() TODO
-				Global.total_time -= 5
-				if(Global.current_difficulty == Global.DifficultyLevel.HARD):
-					if !collider.is_invincible:
-						Global.total_time = 0
-				enter_kill_state()  # Added to make the game more fair
+				if !collider.is_invincible:
+					Global.total_time = 0
+				enter_death_state()
 		if collider2 and collider2.name == "Player":
 			if $StunTimer.is_stopped():
 				$StunTimer.start()
 				collider2.hurt()  # Apply damage to the player if collided
-				Global.total_time -= 5
-				if(Global.current_difficulty == Global.DifficultyLevel.HARD):
-					if !collider2.is_invincible:
-						Global.total_time = 0
-				enter_kill_state()  # Added to make the game more fair
+				if !collider2.is_invincible:
+					Global.total_time = 0
+				enter_death_state()
 	# Move and slide with the current velocity
 	move_and_slide()
 
@@ -65,7 +60,7 @@ func _physics_process(delta):
 		ray_cast.scale.x *= -1  # Flip the RayCast direction
 		$AnimatedSprite2D.scale.x *= -1  # Flip the sprite direction
 
-func enter_kill_state(): # TODO refactor to be enter_death_state()
+func enter_death_state(): # TODO refactor to be enter_death_state()
 	var random_sound_index = randi() % death_sounds.size()
 	$AnimatedSprite2D.animation = "death"
 	$Death.stream  = death_sounds[random_sound_index]
@@ -85,4 +80,4 @@ func enter_kill_state(): # TODO refactor to be enter_death_state()
 
 func _on_stomp_detector_body_entered(body):
 	if body.name == "Player":  # Check if the player entered the area
-		enter_kill_state()
+		enter_death_state()
