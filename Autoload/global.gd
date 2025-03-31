@@ -11,7 +11,7 @@ enum DifficultyLevel { EASY, MEDIUM, HARD }
 var has_collar: bool = true
 
 # Lives
-var total_lives: int = 100 # Default value that is overridden by set_difficulty()
+var total_lives: int = 5
 
 # Level changing
 var current_scene = null
@@ -28,9 +28,6 @@ var total_bones: int = 0
 var total_time: int = 170 # Level timer until game ends due to music running out
 var elapsed_time: float = 0.0
 
-# Difficulty handling
-var current_difficulty: int = DifficultyLevel.EASY
-
 # Pausing
 var is_paused: bool = false
 var pause_menu: Control = null
@@ -39,6 +36,10 @@ var pause_menu: Control = null
 var hamburger_price = 5
 var icecream_price = 5
 var wings_price = 5
+
+# Check point data
+var checkpoint_position: Vector2 = Vector2.INF
+var checkpoint_scene_path: String = ""
 
 # Create new ConfigFile object.
 var config = ConfigFile.new()
@@ -83,9 +84,6 @@ func load_settings():
 func apply_settings():
 	var fullscreen = config.get_value("display", "fullscreen", default_settings["display"]["fullscreen"])
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if fullscreen else DisplayServer.WINDOW_MODE_WINDOWED)
-	# Apply difficulty
-	current_difficulty = config.get_value("game", "difficulty", default_settings["game"]["difficulty"])
-	set_difficulty(current_difficulty)
 
 func goto_scene(path: String) -> void:
 	# Deleting the current scene at this point is
@@ -111,6 +109,8 @@ func _deferred_goto_scene(path: String):
 	get_tree().current_scene = current_scene
 
 func goto_next_level() -> void:
+	# Erase the checkpoint by setting it to an infinity vector
+	checkpoint_position = Vector2.INF
 	# Transition to the pre-level scene
 	var pre_level_scene_path = "res://Menus/PreLevel.tscn"
 	goto_scene(pre_level_scene_path)
@@ -131,24 +131,6 @@ func start_next_level() -> void:
 	level_count += 1
 	level_path = "res://Levels/level_" + str(level_count) + ".tscn"
 	has_newspaper = false
-
-func save_difficulty():
-	config.set_value("game", "difficulty", current_difficulty)
-	config.save("res://settings.cfg")
-
-func set_difficulty(new_difficulty: int) -> void:
-	current_difficulty = new_difficulty
-	
-	match current_difficulty:
-		DifficultyLevel.EASY:
-			total_lives = 100
-		DifficultyLevel.MEDIUM:
-			total_lives = 3
-		DifficultyLevel.HARD:
-			total_lives = 1
-
-func get_difficulty() -> int:
-	return current_difficulty
 
 func _input(event: InputEvent) -> void:
 	if current_scene.name.begins_with("level_") and event.is_action_pressed("ui_cancel") or event.is_action_pressed("ui_select") or event.is_action_pressed("pause_button"):
@@ -196,3 +178,23 @@ func get_level_name(level_count) -> String:
 			return "Level ???  Unknown"
 	# Level name ideas:
 	# Soaring Heights, Jumping Grounds,
+
+func set_checkpoint(position: Vector2, scene_path: String) -> void:
+	checkpoint_position = position
+	checkpoint_scene_path = scene_path
+	print("DEBUG: Checkpoint set at ", position, " in scene: ", scene_path)
+
+func has_checkpoint():
+	return checkpoint_position != Vector2.INF and checkpoint_scene_path != ""
+
+func _deferred_respawn_at_checkpoint():
+	var scene = get_tree().current_scene
+	var player = scene.get_node("Player")
+	player.global_position = checkpoint_position
+	# Reset the time
+	Global.total_time = 170
+	# Reset the level music
+	var music = get_tree().current_scene.get_node("Level Music")
+	music.stop()
+	music.stream = load("res://Assets/Audio/Gameplay Music/Level_Music.wav")
+	music.play()

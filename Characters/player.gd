@@ -56,6 +56,9 @@ var can_jump_during_coyote_time = false
 # Prevent crouching in tunnel stuck glitch
 var is_in_tunnel = false
 
+# Check point
+@export var current_checkpoint_position: Vector2
+
 # Physics processing
 func _physics_process(delta):
 	if !$InvincibilityTimer.is_stopped():
@@ -305,13 +308,16 @@ func perform_jump():
 # Hurt functionality
 func hurt():
 	state = PlayerState.HURT
-	if Global.has_collar == true:
-		$InvincibilityTimer.start()
-		is_invincible = true
-	Global.has_collar = false
 	is_hurt = true
 	pee_timer.start(0.5)
 	$Hurt.play()
+	# Kill the player if there is no collar
+	if Global.has_collar == true:
+		$InvincibilityTimer.start()
+		is_invincible = true
+		Global.has_collar = false
+	else:
+		Global.total_time = 0
 
 # Timeout handling for pee timer
 func _on_pee_timer_timeout():
@@ -336,3 +342,6 @@ func _on_no_duck_zone_body_entered(body: Node2D) -> void:
 
 func _on_no_duck_zone_body_exited(body: Node2D) -> void:
 	is_in_tunnel = false
+
+func set_checkpoint(pos: Vector2):
+	current_checkpoint_position = pos

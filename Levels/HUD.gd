@@ -44,20 +44,22 @@ func updateTimer():
 	if time_left <= 0:
 		Global.has_collar = true
 		Global.total_lives -= 1
-		if (Global.total_lives > 0):
-			# Restart the current level
-			Global._deferred_goto_scene("res://Levels/level_" + str(Global.level_count-1) + ".tscn")
+		
+		if Global.total_lives > 0:
+			# Respawn at the check point
+			print("DEBUG: Global.has_checkpoint(): "+str(Global.has_checkpoint()))
+			if Global.has_checkpoint():
+				Global._deferred_respawn_at_checkpoint()
+			else:
+				# Restart the current level
+				Global.level_count -= 1
+				Global.level_path = "res://Levels/level_" + str(Global.level_count) + ".tscn"
+				Global.goto_next_level()
 		else:
 			# Reset the lives depending on the difficulty
-			if (Global.current_difficulty == Global.DifficultyLevel.EASY):
-				Global.total_lives = 9999
-			if (Global.current_difficulty == Global.DifficultyLevel.MEDIUM):
-				Global.total_lives = 3
-			if (Global.current_difficulty == Global.DifficultyLevel.HARD):
-				Global.total_lives = 1
-				
+			Global.total_lives = 5
+			# Restart at level 1
 			Global._deferred_goto_scene("res://Menus/GameOver.tscn")
-			pass
 
 # Currently set to one second
 func _on_level_timer_timeout():

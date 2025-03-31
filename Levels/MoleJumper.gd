@@ -41,8 +41,3 @@ func _on_jump_timer_timeout():
 func _on_area_2d_body_entered(body):
 	if body is Player:
 		body.hurt()
-		if(Global.current_difficulty == Global.DifficultyLevel.HARD && !body.is_invincible):
-			Global.total_time = 0
-		if(Global.current_difficulty == Global.DifficultyLevel.MEDIUM):
-			Global.lives -= 1
-		Global.total_time -= 5
