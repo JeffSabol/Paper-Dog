@@ -622,7 +622,7 @@ autoplay = "jump"
 frame_progress = 0.248236
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.75, 11.5)
+position = Vector2(-3, 11)
 shape = ExtResource("11_n6il4")
 
 [node name="CrawlRayCast1" type="RayCast2D" parent="."]
@@ -649,6 +649,11 @@ volume_db = -16.0
 [node name="InvincibilityTimer" type="Timer" parent="."]
 wait_time = 0.6
 one_shot = true
+
+[node name="FloorRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-3, 21)
+scale = Vector2(5, 0.545)
+target_position = Vector2(0, 11.0092)
 
 [connection signal="timeout" from="PeeTimer" to="." method="_on_pee_timer_timeout"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invicibility_timer_timeout"]

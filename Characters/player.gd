@@ -191,6 +191,22 @@ func move_character(direction: int, delta: float):
 func handle_crouch_logic():
 	if Input.is_action_just_pressed("ui_down") and not is_in_tunnel:
 		crouch()
+		if is_on_floor():
+			var tilemap = get_tree().current_scene.get_node("TileMap")
+			print("tilemap: " + str(tilemap))
+			#var tile_pos = tilemap.local_to_map(global_position + Vector2(0, 1))
+			print("global_position: " + str(global_position))
+			var below_pos = global_position + Vector2(0, 32)  # or 8
+			var tile_pos = tilemap.local_to_map(below_pos)
+			print("tile_pos: " + str(tile_pos))
+			print("Tile ID at", tile_pos, ":", tilemap.get_cell_source_id(0, tile_pos))
+			var data = tilemap.get_cell_tile_data(0, tile_pos)
+			print("Data: " + str(data))
+			
+			#if data and data.get_custom_data("type") == "wooden_platform":
+				## Temporarily ignore floor collisions to fall through
+				#move_and_slide() # frame delay
+				#velocity.y += 20 # force a drop
 	elif Input.is_action_just_released("ui_down"):
 		if above_head_is_empty() and is_on_floor():
 			uncrouch()
