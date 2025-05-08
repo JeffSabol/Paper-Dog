@@ -498,7 +498,7 @@ stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MoleJumpers" type="Node2D" parent="."]
-position = Vector2(2, 0)
+position = Vector2(1, 0)
 
 [node name="MoleJumper" type="CharacterBody2D" parent="MoleJumpers"]
 position = Vector2(-1523, -203)
@@ -676,7 +676,7 @@ position = Vector2(0, 1)
 polygon = PackedVector2Array(-11, -12, -11, 16, 12, 16, 12, -12)
 
 [node name="MoleMounds" type="Node2D" parent="."]
-position = Vector2(2, 0)
+position = Vector2(1, -1)
 
 [node name="Mound" type="Sprite2D" parent="MoleMounds"]
 position = Vector2(-1523, -167)
@@ -902,32 +902,32 @@ position = Vector2(3074, 54)
 position = Vector2(3, -1)
 
 [node name="PineTree1" type="Sprite2D" parent="Trees"]
-position = Vector2(2460, -45)
+position = Vector2(2460, -46)
 scale = Vector2(2, 2)
 texture = ExtResource("2_monow")
 
 [node name="PineTree2" type="Sprite2D" parent="Trees"]
-position = Vector2(2556, -45)
+position = Vector2(2556, -46)
 scale = Vector2(2, 2)
 texture = ExtResource("2_monow")
 
 [node name="PineTree3" type="Sprite2D" parent="Trees"]
-position = Vector2(3244.15, -13)
+position = Vector2(3244.15, -14)
 scale = Vector2(2, 2)
 texture = ExtResource("2_monow")
 
 [node name="PineTree4" type="Sprite2D" parent="Trees"]
-position = Vector2(3278.15, -13)
+position = Vector2(3278.15, -14)
 scale = Vector2(2, 2)
 texture = ExtResource("2_monow")
 
 [node name="PineTree5" type="Sprite2D" parent="Trees"]
-position = Vector2(3198, -13)
+position = Vector2(3198, -14)
 scale = Vector2(2, 2)
 texture = ExtResource("2_monow")
 
 [node name="PineTree6" type="Sprite2D" parent="Trees"]
-position = Vector2(3324, -13)
+position = Vector2(3324, -14)
 scale = Vector2(2, 2)
 texture = ExtResource("2_monow")
 
@@ -937,12 +937,12 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_monow")
 
 [node name="PineTree10" type="Sprite2D" parent="Trees"]
-position = Vector2(-78, 35)
+position = Vector2(-78, 34)
 scale = Vector2(2, 2)
 texture = ExtResource("2_monow")
 
 [node name="PineTree11" type="Sprite2D" parent="Trees"]
-position = Vector2(-169, 35)
+position = Vector2(-169, 34)
 scale = Vector2(2, 2)
 texture = ExtResource("2_monow")
 
