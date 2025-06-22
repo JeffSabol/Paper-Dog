@@ -20,7 +20,6 @@ const ACCELERATION = 6.0 # The acceleration rate for smooth movement
 const BOOSTED_SPEED = 250.0  # Increased speed when Shift is held
 const CROUCHING_FALL_GRAVITY_MULTIPLIER = 1.5  # Added constant for crouching fall gravity multiplier
 
-
 # Enums and variables
 enum PlayerState {STANDING, WALKING, CRAWL, JUMPING, FALLING, PEEING, HURT} 
 var state = PlayerState.STANDING
@@ -38,6 +37,7 @@ var fall_gravity_multiplier = 1.75
 var jump_buffer_duration = 0.2
 var jump_buffer_timer = 0.0
 var jump_input_received = false
+var flick_detected := false
 
 # Timed jump stuff
 var jump_force = 300.0
@@ -47,6 +47,9 @@ var current_jump_time = 0.0
 # Jump input handling
 # Stops the user from holding down jump on the controller to spam
 var controller_jump_pressed = false
+# Jump phone flick detection
+var last_accel := Vector3.ZERO
+var flick_threshold := 10.0
 
 # Coyote Jump
 var coyote_time_duration = 0.10
@@ -72,6 +75,11 @@ func _physics_process(delta):
 	if state == PlayerState.JUMPING and (Input.is_action_pressed("ui_up") or Input.is_joy_button_pressed(0, JOY_BUTTON_B)) or Input.is_action_pressed("Jump") and current_jump_time < max_jump_time:
 		velocity.y -= jump_force * delta
 		current_jump_time += delta
+	
+	# Flick phone to jump
+	var gyro = Input.get_gyroscope()
+	if gyro.length() > 3.5:
+		flick_detected = true
 
 # Jump input handling
 func handle_jump_input():
@@ -80,8 +88,11 @@ func handle_jump_input():
 
 	var jump_button_just_pressed = Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("Jump")
 	var controller_jump_just_pressed = Input.is_joy_button_pressed(0, JOY_BUTTON_B) and not controller_jump_pressed
+	var flick_jump = flick_detected
 
-	if (jump_button_just_pressed or controller_jump_just_pressed) and not is_peeing and not is_hurt:
+	if (jump_button_just_pressed or controller_jump_just_pressed or flick_jump) and not is_peeing and not is_hurt:
+		flick_detected = false
+		
 		if is_on_floor() or can_jump_during_coyote_time:
 			perform_jump()
 			coyote_time_timer = 0
@@ -150,7 +161,7 @@ func update_coyote_time(delta):
 # Update the player's state while on the ground
 func update_ground_state():
 	if is_on_floor():
-		if is_crouching and not Input.is_action_pressed("ui_down") and above_head_is_empty():
+		if is_crouching and(not Input.is_action_pressed("ui_down") and not Input.is_action_pressed("Left Mouse Button")) and above_head_is_empty():
 			uncrouch()
 	if velocity.x == 0 and not is_crouching and not is_peeing and not is_hurt:
 		state = PlayerState.STANDING
@@ -164,15 +175,27 @@ func get_input_direction() -> int:
 	if is_peeing or is_hurt:  # Ignore movement input if peeing
 		return 0
 	if state != PlayerState.PEEING and state != PlayerState.HURT:
+		# Phone Tilt
+		var tilt_x = Input.get_accelerometer().x
+		if abs(tilt_x) > 0.1:
+			return sign(tilt_x)
+		# Controller
 		var joystick_direction = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
 		if abs(joystick_direction) > 0.2:
 			return sign(joystick_direction)
 		return Input.get_axis("ui_left", "ui_right")
+
 	return 0
 
 func move_character(direction: int, delta: float):
 	var target_speed = SPEED
-	if (Input.is_action_pressed("ui_shift") or Input.is_joy_button_pressed(0, JOY_BUTTON_A) or Input.is_joy_button_pressed(0, JOY_BUTTON_LEFT_SHOULDER)) and not is_crouching:
+	var tilt_x = Input.get_accelerometer().x
+	if (
+		Input.is_action_pressed("ui_shift")
+		or Input.is_joy_button_pressed(0, JOY_BUTTON_A)
+		or Input.is_joy_button_pressed(0, JOY_BUTTON_LEFT_SHOULDER)
+		or abs(tilt_x) > 0.4
+	) and not is_crouching:
 		target_speed = BOOSTED_SPEED
 
 	var target_velocity_x = direction * (target_speed if state != PlayerState.CRAWL else CRAWL_SPEED)
@@ -189,14 +212,14 @@ func move_character(direction: int, delta: float):
 
 # Handle the crouch logic
 func handle_crouch_logic():
-	if Input.is_action_just_pressed("ui_down") and not is_in_tunnel:
+	if (Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("Left Mouse Button")) and not is_in_tunnel:
 		crouch()
-	elif Input.is_action_just_released("ui_down"):
+	elif(Input.is_action_just_released("ui_down") or Input.is_action_just_released("Left Mouse Button")):
 		if above_head_is_empty() and is_on_floor():
 			uncrouch()
 		elif not stuck_under_object:
 			stuck_under_object = true
-	if stuck_under_object and above_head_is_empty() and not Input.is_action_pressed("ui_down"):
+	if stuck_under_object and above_head_is_empty() and (not Input.is_action_pressed("ui_down") and not Input.is_action_pressed("Left Mouse Button")):
 		uncrouch()
 		stuck_under_object = false
 
