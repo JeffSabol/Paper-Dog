@@ -4,7 +4,6 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Check if Paper Dog is running within the winter season
-	
 	if is_within_winter_dates():
 		$TileMap.hide()
 		$Snowmap.show()
@@ -28,3 +27,8 @@ func is_within_winter_dates() -> bool:
 		return true
 
 	return false
+
+
+func _on_click_zone_gui_input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		Global.goto_scene("res://DrowsyDoze/scenes/Main.tscn")
