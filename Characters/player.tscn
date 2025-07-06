@@ -651,5 +651,5 @@ wait_time = 0.6
 one_shot = true
 
 [connection signal="timeout" from="PeeTimer" to="." method="_on_pee_timer_timeout"]
-[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invicibility_timer_timeout"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invicibility_timer_timeout"]

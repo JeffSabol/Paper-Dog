@@ -78,7 +78,7 @@ func _physics_process(delta):
 	
 	# Flick phone to jump
 	var gyro = Input.get_gyroscope()
-	if gyro.length() > 3.5:
+	if gyro.length() > 4:
 		flick_detected = true
 
 # Jump input handling
@@ -177,7 +177,7 @@ func get_input_direction() -> int:
 	if state != PlayerState.PEEING and state != PlayerState.HURT:
 		# Phone Tilt
 		var tilt_x = Input.get_accelerometer().x
-		if abs(tilt_x) > 0.1:
+		if abs(tilt_x) > 0.5:
 			return sign(tilt_x)
 		# Controller
 		var joystick_direction = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
