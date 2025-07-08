@@ -42,6 +42,8 @@ func updateTimer():
 		$"../../../Level Music".play()
 	
 	if time_left <= 0:
+		# Reset the Hourglass animation, so it does not become out of sync
+		$TimeCounter/HourglassController._ready()
 		Global.has_collar = true
 		Global.total_lives -= 1
 		
