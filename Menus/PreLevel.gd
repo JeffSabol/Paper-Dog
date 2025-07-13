@@ -1,5 +1,6 @@
 # Jeff Sabol
 # Controls the UI for the pre-level screen. Mainly for selecting the powerups.
+# Support for all screen sizes
 extends Control
 
 var current_selection
@@ -7,12 +8,17 @@ enum powerup {NONE, BURGER, ICECREAM, WINGS}
 
 # TODO do or don't let the player buy power ups on level 1? and hide it add?
 func _ready():
+	$ColorRect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	
 	get_tree().queue_delete($Selector)
 	get_tree().queue_delete($HBoxContainer)
 	Global.has_collar = true
 	# Set the lives and level name labels
 	$Lives.text = str(Global.total_lives)
 	$LevelName.text = Global.get_level_name(Global.level_count)
+	$LevelName.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
+	$LevelName.offset_top += 44
+	$LevelName.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	
 	# Start a timer or wait for player input to proceed to the next level
 	$Timer.start()
