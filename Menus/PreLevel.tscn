@@ -99,8 +99,8 @@ offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0, 0, 0, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(537, 260)
+[node name="Dog" type="AnimatedSprite2D" parent="."]
+position = Vector2(534, 294)
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_njejf")
 autoplay = "default"
@@ -181,6 +181,7 @@ theme_override_font_sizes/font_size = 80
 text = "123"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
