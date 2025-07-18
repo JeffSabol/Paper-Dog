@@ -120,11 +120,12 @@ func setup_prelevel_ui():
 	$BoneX.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	$BoneX.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	$BoneX.offset_top += 150  # Push it below the previous row
-
+	
 	$BoneCount.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	$BoneCount.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	$BoneCount.offset_left = 100
 	$BoneCount.offset_top += 150
+	$BoneCount.text = str(Global.total_bones)
 
 	$Bone.global_position = $BoneX.get_global_transform().origin - Vector2(190, 0)
 
