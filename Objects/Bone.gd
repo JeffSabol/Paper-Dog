@@ -24,7 +24,7 @@ func _process(delta):
 
 		# Movement and scale
 		var target_pos = player.global_position
-		position = position.move_toward(target_pos, pull_speed * delta)
+		global_position = global_position.move_toward(target_pos, pull_speed * delta)
 		scale = scale.move_toward(Vector2(0.001, 0.001), delta * scale_speed)
 
 		# Add a soft spin
