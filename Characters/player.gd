@@ -190,12 +190,15 @@ func get_input_direction() -> int:
 func move_character(direction: int, delta: float):
 	var target_speed = SPEED
 	var tilt_x = Input.get_accelerometer().x
-	if (
+
+	var sprint_input = (
 		Input.is_action_pressed("ui_shift")
 		or Input.is_joy_button_pressed(0, JOY_BUTTON_A)
 		or Input.is_joy_button_pressed(0, JOY_BUTTON_LEFT_SHOULDER)
 		or abs(tilt_x) > 0.4
-	) and not is_crouching:
+	)
+
+	if sprint_input and not is_crouching and Global.has_collar:
 		target_speed = BOOSTED_SPEED
 
 	var target_velocity_x = direction * (target_speed if state != PlayerState.CRAWL else CRAWL_SPEED)
@@ -208,6 +211,7 @@ func move_character(direction: int, delta: float):
 	velocity.x = lerp(velocity.x, target_velocity_x, lerp_factor)
 	update_animations()
 	move_and_slide()
+
 
 
 # Handle the crouch logic
