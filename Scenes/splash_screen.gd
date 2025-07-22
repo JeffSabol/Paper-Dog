@@ -38,8 +38,8 @@ func fade_out_and_continue():
 	tween.set_ease(Tween.EASE_IN_OUT)
 
 	tween.tween_property(dog_logo, "modulate:a", 0.0, 1.0)
-	tween.parallel().tween_property(label, "modulate:a", 0.0, 1.5)
 	await tween.finished
+	tween.parallel().tween_property(label, "modulate:a", 0.0, 1.5)
 
 	Global._deferred_goto_scene("res://Menus/MainMenu.tscn")
 	#Global._deferred_goto_scene("res://Scenes/Newgrounds.tscn")
