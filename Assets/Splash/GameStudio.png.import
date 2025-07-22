@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://06b1d2necqyf"
-path="res://.godot/imported/Dog Logo.png-ec9a8c0823cc1e4b3835415ff7331d15.ctex"
+uid="uid://owe1rxmvs0yy"
+path="res://.godot/imported/GameStudio.png-de74f1eb4d07b021ee1e9fd5effe78e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Unsorted/New Splash/Dog Logo.png"
-dest_files=["res://.godot/imported/Dog Logo.png-ec9a8c0823cc1e4b3835415ff7331d15.ctex"]
+source_file="res://Assets/Splash/GameStudio.png"
+dest_files=["res://.godot/imported/GameStudio.png-de74f1eb4d07b021ee1e9fd5effe78e2.ctex"]
 
 [params]
 

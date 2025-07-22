@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3ci4ukdx7lp5"]
+
+[ext_resource type="Texture2D" uid="uid://dhgw6mgrr6c48" path="res://Assets/Splash/Dog Logo.png" id="1_acvwv"]
+[ext_resource type="Script" uid="uid://dbgagtp3jpipk" path="res://Scenes/splash_screen.gd" id="1_pufkq"]
+[ext_resource type="Texture2D" uid="uid://rcwwu2un40hb" path="res://Assets/Splash/B0RKED.png" id="2_7m5qv"]
+[ext_resource type="Texture2D" uid="uid://owe1rxmvs0yy" path="res://Assets/Splash/GameStudio.png" id="3_7m5qv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pufkq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -27360.0
+offset_top = -26243.0
+offset_right = 27640.0
+offset_bottom = 28757.0
+color = Color(0, 0.333333, 0.529412, 1)
+
+[node name="B0RKED" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -2780.0
+offset_top = -184.0
+offset_right = 6774.0
+offset_bottom = 2162.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7m5qv")
+stretch_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="DogLogo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.0
+offset_right = 288.0
+offset_bottom = 608.0
+grow_horizontal = 2
+texture = ExtResource("1_acvwv")
+
+[node name="Studio" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -368.0
+offset_top = -128.0
+offset_right = 368.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_7m5qv")

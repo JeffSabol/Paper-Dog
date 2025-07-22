@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://owe1rxmvs0yy"
-path="res://.godot/imported/GameStudio.png-88df69bb25ddc819e7a33a60488488c7.ctex"
+uid="uid://rcwwu2un40hb"
+path="res://.godot/imported/B0RKED.png-0b84c03cc7eaea2ed02b5ee2bad38369.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Unsorted/New Splash/GameStudio.png"
-dest_files=["res://.godot/imported/GameStudio.png-88df69bb25ddc819e7a33a60488488c7.ctex"]
+source_file="res://Assets/Splash/B0RKED.png"
+dest_files=["res://.godot/imported/B0RKED.png-0b84c03cc7eaea2ed02b5ee2bad38369.ctex"]
 
 [params]
 
